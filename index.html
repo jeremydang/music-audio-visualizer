@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="visualizer-container" id="visualizer">
+            <canvas id="canvas-1" width="190px" height="150px"></canvas>
+            <canvas id="canvas-2" width="190px" height="150px"></canvas>
+            <canvas id="canvas-3" width="190px" height="150px"></canvas>
+            <div class="logo-holder"><img src="images/jer-logo.png" class="logo"></div>
+            <canvas id="canvas-4" width="190px" height="150px"></canvas>
+            <canvas id="canvas-5" width="190px" height="150px"></canvas>
+            <canvas id="canvas-6" width="190px" height="150px"></canvas>
+        </div>
+        <div class="control-container">
+            <i class="fa fa-play icon" id="playBtn" onclick="playBtnOnclick()"></i>
+            <i class="fa fa-stop icon" onclick="stopBtnOnclick()"></i>
+            <i class="fa fa-volume-up icon" id="volumeBtn" onclick="volumeBtnOnclick()"></i>
+            <div class="slider-container">
+                <input type="range" min="0" max="100" value="80" class="slider" id="slider">
+            </div>
+        </div>
+    </div>
+    <audio crossOrigin="anonymous" id="audioFile" src="audio/audio-file.mp3" loop autoplay></audio>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>
