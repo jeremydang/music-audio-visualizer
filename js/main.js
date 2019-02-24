@@ -83,10 +83,11 @@ var volumeBtn = document.getElementById("volumeBtn")
 
 function playBtnOnclick() {
     if (!initialClick){
-        ctx.resume();
-        initialClick = true;
-        audio.play();
-        loop();
+        ctx.resume().then(() => {
+            initialClick = true;
+            audio.play();
+            loop();
+        });
     }
     
     if (audio.paused) {
