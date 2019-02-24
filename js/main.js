@@ -11,6 +11,8 @@ var dataArray = new Uint8Array(bufferLength);
 
 var visualizer = document.getElementById("visualizer");
 
+var initialClick = false;
+
 var canvas1 = document.getElementById("canvas-1");
 var canvas2 = document.getElementById("canvas-2");
 var canvas3 = document.getElementById("canvas-3");
@@ -62,13 +64,10 @@ function update() {
 }
 
 function init() {
-    console.log('init');
     var source = ctx.createMediaElementSource(audio);
     source.connect(analyzer);
     analyzer.connect(ctx.destination);
     audio.volume = 0.8;
-    audio.play();
-    loop();
 }
 
 function loop() {
@@ -83,6 +82,13 @@ var playBtn = document.getElementById("playBtn");
 var volumeBtn = document.getElementById("volumeBtn")
 
 function playBtnOnclick() {
+    if (!initialClick){
+        ctx.resume();
+        initialClick = true;
+        audio.play();
+        loop();
+    }
+    
     if (audio.paused) {
         audio.play();
         playBtn.className = "fa fa-play icon";
